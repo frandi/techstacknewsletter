@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="A newsletter about technology and software development" />
+        <meta name="description" content="Cost saving with Redis cache and JAMStack Architecture" />
         <meta name="author" content="Frandi Dwijayanto" />
         <title>Tech Stack Newsletter | Vol. 1</title>
         <!-- Favicon-->
@@ -22,30 +22,73 @@
         <header class="masthead d-flex align-items-center">
             <div class="container px-4 px-lg-5 text-center">
                 <h1 class="mb-1">Tech Stack | Vol. 1</h1>
-                <h3 class="mb-5"><em>A newsletter about technology and software development</em></h3>
+                <h3 class="mb-5"><em>Cost saving with Redis cache and JAMStack Architecture</em></h3>
             </div>
         </header>
         <!-- Project Story -->
         <section class="content-section bg-primary text-white text-center" id="story">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 text-start">
-                    <div class="col">
+                    <div class="col multi-col">
                         <div class="content-section-heading">
                             <h3 class="text-secondary mb-2"><i class="fas fa-chalkboard-teacher me-2"></i> Project Story</h3>
                             <h2 class="mb-5">Go Wandering: Cost Saving With Redis Cache</h2>
                         </div>
                         <p class="mb-3">
-                            Redis is known as a distributed cache tool that is usually used to improve data access performance. 
-                            But, it is interesting to see that the Go Wandering team also found another benefit of using it to save operational costs. How?
+                            Redis is known as a distributed cache tool to improve data access performance. 
+                            But, it is interesting to see that the Go Wandering team also found another benefit of using it to save operational costs. 
+                            How?
                         </p>
                         <p class="mb-3">
-                            Just like any other modern SaaS (Software as a Service) nowadays, the Go Wandering system are orchestrated to work with many external services to do various things. 
-                            For example, it requires a service to get the information of weather conditions, or to get the information of nearby facilities around certain places.
+                            Just like any other modern SaaS (Software as a Service) nowadays, the Go Wandering system is orchestrated to work with many external services to do various things. 
+                            For example, it requires service to get weather conditions or get nearby facilities around certain places.
                         </p>
                         <p class="mb-3">
-                            Depending on the subscription plan, these external services usually have certain access policy that either limits the number of API requests or just accepting any calls 
-                            and increase the bills if it's a "pay as you go" plan. On both cases, having a strategy to minimize the calls to the external services will surely give possitive impact
-                            on the performance and the expense.
+                            Depending on the subscription plan, these external services usually have a specific access policy limiting the number of API requests on a particular period or accepts any calls and increases the bills if it's a "pay as you go" plan. 
+                            In both cases, having a strategy to minimize the calls to the external services will positively impact the performance and the expense. 
+                            The team then sees that Redis cache could be a solution for this.
+                        </p>
+                        <p class="mb-3">
+                            Interestingly, the Go Wandering team did not choose the caching strategy for cost-saving purposes at first. 
+                            They used it to decrease the database load, which will boost the application's performance in general.
+                        </p>
+                        <blockquote class="blockquote">
+                            <p>
+                                "We needed a caching strategy to improve performance. We're already familiar with Redis, so it was evident that it became our first option. 
+                                And we didn't have to worry about managing the infrastructure because there was this Azure Cache for Redis that we can use. 
+                                It fitted with our general infrastructure set up in Azure.", said Brain Balaka, the Director of Product, Polyrific.
+                            </p>
+                        </blockquote>
+                        <p class="mb-3">
+                            Delegating some data access traffic to Redis cache means that they don't have to worry about scaling up the database size radically when the application's load increases. 
+                            Furthermore, having additional caching infrastructure is much cheaper than scaling up the database specs in general. 
+                            So the team saw that the caching strategy also had a good impact on the costs.
+                        </p>
+                        <blockquote class="blockquote">
+                            <p>
+                                "We immediately noticed that the usage of Redis cache effectively decreased the need to connect to the database. 
+                                If it works with the internal data source, we think it will work with the external data sources as well.", Brain continued.
+                            </p>
+                        </blockquote>
+                        <p class="mb-3">
+                            Implementing Redis as a cache strategy for the external services was a smart move. 
+                            It minimized the need to call the external APIs, which positively impacted the overall performance and the expense.
+                        </p>
+                        <blockquote class="blockquote">
+                            <p>
+                                "Yes, that's right, it also cut the cost!" Brain confirmed with his smiley face.
+                            </p>
+                        </blockquote>
+                        <p class="mb-3">
+                            The saving was varied, depending on the characteristics of the cached data. 
+                            Some data can be cached for a longer time, like the events data in a particular area. 
+                            But, some data needs to be refreshed more often, like the information on current weather. 
+                            The team still needs to define the best caching policy for each of them. 
+                            But overall, it's a massive win for the operation of the application.
+                        </p>
+                        <p class="mb-3">
+                            Caching strategy is not the only thing done by the Go Wandering team to save the expense. 
+                            We will learn more about the other exciting methods on different occasions in the future.
                         </p>
                     </div>
                 </div>

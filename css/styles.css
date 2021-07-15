@@ -551,6 +551,7 @@ progress {
 .blockquote {
   margin-bottom: 1rem;
   font-size: 1.25rem;
+  font-style: italic;
 }
 .blockquote > :last-child {
   margin-bottom: 0;
@@ -11133,4 +11134,14 @@ footer.footer .social-link:hover {
   line-height: 7.5rem;
   font-size: 2.25rem;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.multi-col {
+  column-count: 1;
+}
+
+@media (min-width: 992px) {
+  .multi-col {
+    column-count: 2;
+  }
 }

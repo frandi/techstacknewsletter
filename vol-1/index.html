@@ -36,7 +36,7 @@
                         </div>
                         <p class="mb-3">
                             Redis is known as a distributed cache tool to improve data access performance. 
-                            But, it is interesting to see that the Go Wandering team also found another benefit of using it to save operational costs. 
+                            But, it is interesting to see that the <a href="https://gowandering.com/" target="_blank" class="text-secondary">Go Wandering</a> team also found another benefit of using it to save operational costs. 
                             How?
                         </p>
                         <p class="mb-3">
@@ -62,7 +62,7 @@
                         <p class="mb-3">
                             Delegating some data access traffic to Redis cache means that they didn't have to worry about scaling up the database size radically when the application's load increases. 
                             Furthermore, having additional caching infrastructure is much cheaper than scaling up the database specs in general. 
-                            So the team saw that the caching strategy also had a good impact on the costs.
+                            So the team saw that the caching strategy also had a good impact on the database costs.
                         </p>
                         <blockquote class="blockquote">
                             <p>
@@ -81,10 +81,12 @@
                         </blockquote>
                         <p class="mb-3">
                             The saving was varied, depending on the characteristics of the cached data. 
-                            Some data can be cached for a longer time, like the events data in a particular area. 
-                            But, some data needs to be refreshed more often, like the information on current weather. 
-                            The team still needs to define the best caching policy for each of them. 
-                            But overall, it's a massive win for the operation of the application.
+                            Some data can be cached for a longer time, like the data of regular events that are held in a particular area. 
+                            But, some data needs to be refreshed more often, like the information on current weather.
+                        </p>
+                        <p class="mb-3">
+                            The team still needs to define the best caching policy for each of them to get the balance between the data integrity and performance. 
+                            But overall, it's a massive win for the general operation of the application.
                         </p>
                         <p class="mb-3">
                             Caching strategy is not the only thing done by the Go Wandering team to save the expense. 
@@ -98,14 +100,67 @@
         <section class="content-section bg-success text-white text-center" id="labs">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 text-start">
-                    <div class="col">
+                    <div class="col multi-col">
                         <div class="content-section-heading">
                             <h3 class="text-secondary mb-2"><i class="fas fa-flask me-2"></i> From the Labs</h3>
-                            <h2 class="mb-5">JAMStack Architecture</h2>
+                            <h2 class="mb-5">JAMstack Architecture</h2>
                         </div>
-                        <p class="mb-5">
-                            Redis is known as a distributed cache tool that is usually used to improve data access performance. 
-                            But, it is interesting to see that the Go Wandering team also found another benefit of using it to save operational costs. How?
+                        <p class="mb-3">
+                            <a href="https://jamstack.org/" target="_blank" class="text-secondary">JAMstack</a> is an architecture for websites and apps that primary purpose is to deliver better performance. 
+                            It tries to oppose the traditional CMS approach by bringing the "decoupling" and "pre-rendering" methods as the core of its operation.
+                        </p>
+                        <p class="mb-3">
+                            The name is an acronym for the stack's building components: <b>Javascript</b>, <b>API (Application Programming Interface)</b>, and <b>Markup</b>. 
+                            They are not a new stack actually in the web development world. 
+                            Almost all web developers are already familiar with them. 
+                            However, unlike the traditional CMS approach, JAMstack doesn't use the stack in the "live" system. 
+                            It only uses them in the "build" process to produce static pages.
+                        </p>
+                        <p class="mb-3">
+                            In the traditional CMS, like WordPress, the webserver plays a vital role in serving user requests. 
+                            It does some computational processes to combine the page template with the content data from the database on the fly. 
+                            While it is generally very vast with today's server specs and internet connection speeds, there is still a "processing time" that contributes to the overall response time. 
+                            And if the concurrent requests increase, the webserver will be very busy, resulting in a longer response time.
+                        </p>
+                        <p class="mb-3">
+                            In JAMstack, the contents are generated in advance in the form of static pages and assets. 
+                            These pre-built contents are hosted in CDN (Content Delivery Network), the global network of servers that brings the content closer to the user location. 
+                            The combination between static pages and CDN should give you an idea now how the JAMstack approach should bring better performance to your website.
+                        </p>
+                        <p class="mb-3">
+                            When we talk about static pages, it doesn't mean that they cannot be interactive. 
+                            It just means that there is no additional processing now in the host server to combine the page template with its content because they've been merged into a unified file. 
+                            The Javascript component comes into play for the interactivity behavior. 
+                            It will talk to the (micro) service APIs as necessary.
+                        </p>
+                        <p class="mb-3">
+                            You may ask if JAMstack still requires APIs to serve the interactivity behavior; 
+                            it's still the same as how the SPA (Single Page Application) works, right?
+                        </p>
+                        <p class="mb-3">
+                            In the way how Javascript does the API calls, yes, it has some similarities with how SPA works. 
+                            But they're still different in principle. 
+                            There is still a separation between the template and its content in SPA, 
+                            which requires it to do the merging process on the fly for every user request (although, unlike the traditional website, it is all done on the client/browser side). 
+                        </p>
+                        <p class="mb-3">
+                            In JAMstack, the API requests are only made for the additional features that require interactivity. 
+                            For example, the comments section in a blog or the contact form in a website. 
+                            Users will interact with these features asynchronously. 
+                            They will not impact the initial response time for the website.
+                        </p>
+                        <p class="mb-3">
+                            To manage the contents, the admin users can still utilize a CMS admin site. 
+                            They will still use the rich text editor, WYSIWYG components, category management, etc., as usual. 
+                            The difference is only in how the publishing is made to the front-facing website. 
+                            The CMS tools must generate static pages based on the created or edited contents in the admin site. 
+                            And once the static pages are generated, they're actually decoupled with the CMS backend. 
+                            This kind of CMS which only has the admin site without the front-facing website is usually known as "Headless CMS."
+                        </p>
+                        <p class="mb-3">
+                            The other notable benefit of using JAMstack is SEO-friendly. 
+                            Thanks to the static pages and the boost speed of CDN. 
+                            It's also easy to scale and relatively secure because it's decoupled with the backend server and the database.
                         </p>
                     </div>
                 </div>
